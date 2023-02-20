@@ -12,7 +12,7 @@ max sum(getBeneficio(i) x[i], i in 0 .. m)
 
 constraints section
 
-sum(x[i] getPorcentajeCafe(i ,j), i in 0..m) = getCantidad(j), j in 0..n
+sum(x[i] getPorcentajeCafe(i ,j), i in 0..m) <= getCantidad(j), j in 0..n
 
 bounds section
 
