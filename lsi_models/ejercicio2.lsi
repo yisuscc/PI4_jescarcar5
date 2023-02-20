@@ -1,0 +1,28 @@
+head section
+
+Integer getCursos()
+Integer  getTematicas()
+Integer getCentros()
+Integer getMaxCentros()
+Boolean getCursoTematica(Integer i, Integer j)
+Double getPrecio (Integer i) //creo que hay que quitarle el double
+Boolean getCursoCentro(Integer i, Integer j)
+Integer n =  getCursos()
+Integer m= getTematicas()
+Integer nc = getCentros()
+IntegermaxCentros=   getMaxCentros()
+goal section 
+// minimizar el precio de la inscripción
+
+constraints section
+//entre todos los curso  seleccionados se deben de cubrir todas las tematicas
+
+//no se pueden elegir cursosde mas de un determinado de centros diferentes
+
+//relacionar x e y 
+
+bounds section
+
+bin 
+x[i], i in 0 .. n
+y[k], k in 0 .. nc
