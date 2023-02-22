@@ -1,7 +1,8 @@
 head section
 
-Integer getNumElementos()
+
 Integer getSuma()
+Integer getNumElementos()
 Integer getElemento(Integer i)
 Integer getMultiplicidad(Integer i)
 Integer n = getSuma()
