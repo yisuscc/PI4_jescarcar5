@@ -3,19 +3,17 @@ Integer getTiposCafe()
 Integer getVariedadesCafe()
 Integer getCantidad(Integer j)
 Double getBeneficio(Integer i)
-Double getPorcentajeCafe(Integer i , Integer j)
+Double getPorcentajeCafe(Integer i, Integer j)
 Integer n = getTiposCafe()
 Integer m = getVariedadesCafe()
+
 goal section 
 
 max sum(getBeneficio(i) x[i], i in 0 .. m)
 
 constraints section
 
-sum(x[i] getPorcentajeCafe(i ,j), i in 0..m) <= getCantidad(j), j in 0..n
-
-bounds section
-
+sum(getPorcentajeCafe(i,j) x[i], i in 0..m) <= getCantidad(j), j in 0..n
 
 int
  x[i], i in 0..m
