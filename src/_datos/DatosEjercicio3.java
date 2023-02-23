@@ -13,9 +13,10 @@ public class DatosEjercicio3 {
 public static record Investigador (String nombre, Integer capacidad, Integer especialidad) {
 	public static Investigador create(String linea) {
 		String []datos = linea.split(";");
-		String nom =  datos[0].trim();
-		Integer cap = Integer.valueOf(datos[1].trim());
-		Integer esp = Integer.valueOf(datos[2].trim());
+		String[] aux= datos[0].split(":");
+		String nom =  aux[0].trim();
+		Integer cap = Integer.valueOf(aux[1].replace("capacidad=", "").trim());
+		Integer esp = Integer.valueOf(datos[1].replace("especialidad=", "").trim());
 		return new Investigador(nom, cap, esp);
 	}
 }
@@ -34,6 +35,7 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 		return new Trabajo(nom, cal, eD);
 		
 	}
+}
 	private static List<Investigador> investigadores;
 	private static List<Trabajo>trabajos;
 	
@@ -55,12 +57,13 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 		 System.out.println("Estos son los inv" + getInvestigadores());
 		 
 	}
+	public static void main(String[] args) {
+		 test();
+
+		}
 	
 }
 
-	public static void main(String[] args) {
-	 test();
+	
 
-	}
 
-}
