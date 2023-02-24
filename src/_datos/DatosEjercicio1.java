@@ -93,7 +93,7 @@ private static void testLectura() {
 	
 }
 	public static void main(String[] args) {
-		//testLectura();
+		testLectura();
 
 		
 

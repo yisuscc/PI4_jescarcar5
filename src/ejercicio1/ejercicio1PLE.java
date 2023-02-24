@@ -34,14 +34,14 @@ public static Double getBeneficio(Integer i) {
 	return DatosEjercicio1.getVariedades().get(i).beneficio();
 }
 public static Double getPorcentajeCafe(Integer i , Integer j) {
-	
-	return DatosEjercicio1.getVariedades().get(i).composicion().get(DatosEjercicio1.cafeId(j));
+	variedadCafe aux = DatosEjercicio1.getVariedades().get(i);
+	return aux.composicion().containsKey(j)?aux.composicion().get(j):0.0;
 }
 public static void entrada1() throws IOException {
 	DatosEjercicio1.iniDatos("ficheros/ejercicios/Ejercicio1DatosEntrada1.txt");
 	cafe = DatosEjercicio1.getCafes();
 	variedades = DatosEjercicio1.getVariedades();
-	AuxGrammar.generate(Ejemplo1PLE.class,"lsi_models/ejercicio1.lsi","gurobi_models/ejercicio1-1.lp");
+	AuxGrammar.generate(ejercicio1PLE.class,"lsi_models/ejercicio1.lsi","gurobi_models/ejercicio1-1.lp");
 	GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio1-1.lp");
 	Locale.setDefault(new Locale("en", "US"));
 	System.out.println(solution.toString((s,d)->d>0.));

@@ -45,6 +45,8 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 	public static List<Trabajo> getTrabajos() {
 		return trabajos;
 	}
+	
+	// TODO EL INIDATA
 	private static void test() {
 		 String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada2.txt";
 		 List<String> lsF  = Files2.linesFromFile(fichero);
