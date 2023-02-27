@@ -46,15 +46,18 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 		return trabajos;
 	}
 	
-	// TODO EL INIDATA
-	private static void test() {
-		 String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada2.txt";
-		 List<String> lsF  = Files2.linesFromFile(fichero);
+
+	public static void iniData(String fichero) {
+		List<String> lsF  = Files2.linesFromFile(fichero);
 		 Integer indexTrabajos = lsF.indexOf("// TRABAJOS");
 		 List<Investigador> inv= List.copyOf(lsF.subList(1, indexTrabajos)).stream().map(s-> Investigador.create(s)).toList();
 		 List<Trabajo> trab = List.copyOf(lsF.subList(indexTrabajos+1, lsF.size())).stream().map(s-> Trabajo.create(s)).toList();
 		 trabajos = trab;
 		 investigadores = inv;
+	}
+	private static void test() {
+		 String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada2.txt";
+		iniData(fichero);
 		 System.out.println("Estos son los trabajos"+ getTrabajos());
 		 System.out.println("Estos son los inv" + getInvestigadores());
 		 

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import _datos.DatosEjercicio1.tipoCafe;
 import us.lsi.common.Files2;
 
 public class DatosEjercicio1 {
@@ -59,7 +60,9 @@ public class DatosEjercicio1 {
 		
 	}
 
-
+public static tipoCafe getCafeNom(String nom) {
+	return cafe.stream().filter(c->c.nombre().equals(nom)).findFirst().get();
+}
 	public static String cafeId(Integer id) {
 		return cafe.get(id).nombre();
 	}

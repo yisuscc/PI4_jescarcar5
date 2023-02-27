@@ -29,5 +29,9 @@ public static Graph<Cliente, Arista> getGrafo(){
 		// TODO Auto-generated method stub
 
 	}
+	public static void iniDatos() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

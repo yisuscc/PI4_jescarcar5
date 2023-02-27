@@ -12,7 +12,7 @@ public class DatosEjercicio2 {
 //Max_Centros = 1
 	//{1,2,3,4}:10.0:0
 	//{1,4}:3.0:0
-public static record Cursos(Set<Integer> cursillos, Double matricula, Integer centro) {
+public static record Cursos(Set<Integer> tematica, Double matricula, Integer centro) {
 		public static Cursos create(String linea) {
 			String [] datos = linea.split(":");
 			Set<Integer> cur = new HashSet<>();
