@@ -35,20 +35,27 @@ public static Double getBeneficio(Integer i) {
 }
 public static Double getPorcentajeCafe(Integer i , Integer j) {
 	variedadCafe aux = DatosEjercicio1.getVariedades().get(i);
-	return aux.composicion().containsKey(j)?aux.composicion().get(j):0.0;
+	String nomCaf = cafe.get(j).nombre();
+	return aux.composicion().containsKey(nomCaf)?aux.composicion().get(nomCaf):0.0;
+	
 }
 public static void entrada1() throws IOException {
-	DatosEjercicio1.iniDatos("ficheros/ejercicios/Ejercicio1DatosEntrada1.txt");
-	cafe = DatosEjercicio1.getCafes();
-	variedades = DatosEjercicio1.getVariedades();
-	AuxGrammar.generate(ejercicio1PLE.class,"lsi_models/ejercicio1.lsi","gurobi_models/ejercicio1-1.lp");
-	GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio1-1.lp");
-	Locale.setDefault(new Locale("en", "US"));
-	System.out.println(solution.toString((s,d)->d>0.));
+	for(int ej= 1;ej<=3;ej++) {
+		
+		DatosEjercicio1.iniDatos("ficheros/ejercicios/Ejercicio1DatosEntrada"+ej+".txt");
+		cafe = DatosEjercicio1.getCafes();
+		variedades = DatosEjercicio1.getVariedades();
+		AuxGrammar.generate(ejercicio1PLE.class,"lsi_models/ejercicio1.lsi","gurobi_models/ejercicio1-"+ej+".lp");
+		GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio1-"+ej+".lp");
+		Locale.setDefault(new Locale("en", "US"));
+		System.out.println(solution.toString((s,d)->d>0.));
+	}
+
 }
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		entrada1();
+	
 
 	}
 
