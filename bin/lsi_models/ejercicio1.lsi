@@ -10,8 +10,8 @@ Integer m = getVariedadesCafe()
 goal section 
 max sum(getBeneficio(i) x[i], i in 0 .. m)
 constraints section
-bounds section
- sum(getPorcentajeCafe(i,j) x[i], i in 0 .. m) <=  getCantidad(j), j in 0 .. n
+sum(getPorcentajeCafe(i,j) x[i], i in 0 .. m) -  getCantidad(j)<= 0 , j in 0 .. n
+
 int 
 
 x[i], i in 0 .. m
