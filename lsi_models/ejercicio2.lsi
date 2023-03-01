@@ -8,22 +8,27 @@ Integer getCursoTematica(Integer i, Integer j) // voy a usarlos como integer
 Double getPrecio (Integer i)
 Boolean getCursoCentro(Integer i, Integer k)
 Integer n =  getCursos()
-Integer m= getTematicas()
+Integer m = getTematicas()
 Integer nc = getCentros()
-Integer maxCentros=   getMaxCentros()
+Integer maxCentros = getMaxCentros()
+Integer cero = 0
+
 goal section 
-// minimizar el precio de la inscripción
-min sum(getPrecio(i) x[i], i in 0 .. n)
+
+min sum(getPrecio(i), i in 0 .. n | x[i]= 1)
+
 constraints section
+sum(y[k], k in  0 .. nc) <= maxCentros
+ 
+y[k] - x[i] >= 0 | getCursoCentro(i,k) , i in 0 .. n , k in 0 .. nc
+
+//ha de cubrir todas las tematicas 
+ sum(getCursoTematica(i,j) , i in  0 .. n | x[i] = 1 )  > 0 ,  j in 0 .. m
+ 
 
 
-//relacionar x e y 
-// y[k] - getCursoCentro(i,k)* x[i] >=0  ,i in 0 .. n ,k in  0 .. nc
+ 
 
-//no se pueden elegir cursosde mas de un determinado de centros diferentes
- sum(y[k], k in 0 .. nc) <= maxCentros
- //entre todos los curso  seleccionados se deben de cubrir todas las tematicas
-//sum(getCursoTematica(i,j) x[i], i in 0 .. n, j in 0 .. m ) = m
 
 
  
