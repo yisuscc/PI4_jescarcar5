@@ -34,22 +34,23 @@ public static Integer getMaxCentros() {
 
 	return DatosEjercicio2.getMaxCentros();
 }
-public static Boolean getCursoTematica(Integer i, Integer j) {
+public static  Integer getCursoTematica(Integer i, Integer j) {
 	
-	return DatosEjercicio2.getCursos().get(i).tematica().contains(j);
+	return DatosEjercicio2.getCursos().get(i).tematica().contains(j)?1:0;
 }
 public static Double getPrecio (Integer i) {
 
 	return  DatosEjercicio2.getCursos().get(i).matricula();
 }
-public static Boolean getCursoCentro(Integer i, Integer j) {
+public static Boolean getCursoCentro(Integer i, Integer k) {
 	
-	return DatosEjercicio2.getCursos().get(i).centro().equals(j);
+	return DatosEjercicio2.getCursos().get(i).centro().equals(k);
 }
 public static void entrada1() throws IOException {
 	DatosEjercicio2.iniDatos("ficheros/ejercicios/Ejercicio2DatosEntrada1.txt");
 	Cursos = DatosEjercicio2.getCursos();
 	maxCentros = DatosEjercicio2.getMaxCentros();
+	//System.out.println(getCursoTematica(4, 0));;
 	AuxGrammar.generate(ejercicio2PLE.class,"lsi_models/ejercicio2.lsi","gurobi_models/ejercicio2-1.lp");
 	GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio2-1.lp");
 	Locale.setDefault(new Locale("en", "US"));

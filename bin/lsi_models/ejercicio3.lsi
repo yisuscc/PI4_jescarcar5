@@ -1,29 +1,29 @@
-head section
+head section 
+
 Integer getInvestigadores()
 Integer getEspecialidades()
-Integer getTrabajos()
+Integer getTrabajos() 
 Boolean getTrabajadorEsp(Integer i, Integer k)
 Integer getDiasDisp(Integer i)
-Integer getDiasNecesarios(Integer j, Integer k)
+Integer getDiasNecesarios(Integer j, Integer k) 
 Integer getCalidadTrabajo(Integer j)
+Integer n = getInvestigadores()
+Integer e = getEspecialidades()
+Integer m =  getTrabajos() 
 
-Integer n=  getInvestigadores()
-Integer e= getEspecialidades()
-Integer m =  getTrabajos()
+goal section
 
-goal section 
-//maximizar la suma total de las calidad de los trabajos realizados
-max sum(y[j] getCalidadTrabajo(j), j in  0 .. m)
+max sum(getCalidadTrabajo(j) y[j] , j in 0 ..  m) 
+
 constraints section
 
-//relacionar variables x e y
-y[j] = 1, i in 0 .. n , j in 0 .. m |x[i,j] >0 
+sum(x[i,j], i in 0 .. m)>0  =>  y[j] = 1 , j in 0 .. m  
 
-bounds section
-//para cada trabajador no se puede superar la cantidad de dias disponibles 
-sum(x[i,j],j in 0 .. m ) <= getDiasDisp(i), i in 0 .. n
+bounds section 
 
-int
-x[i,j], i in 0..n, j in 0..m
-bin 
-y[j], j in 0..m
+sum(x[i,j], j in 0 .. m ) <= getDiasDisp(i), i in 0 .. n
+
+bin
+y[j], j in 0 .. m 
+int 
+x[i,j], i in 0 .. n ,j in 0 .. m  |

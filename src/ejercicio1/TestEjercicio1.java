@@ -18,7 +18,9 @@ public class TestEjercicio1 {
 		
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
-		List<String> ls = List.of("ficheros/ejercicios/Ejercicio1DatosEntrada1.txt");
+		List<String> ls = List.of("ficheros/ejercicios/Ejercicio1DatosEntrada1.txt",
+				"ficheros/ejercicios/Ejercicio1DatosEntrada2.txt",
+				"ficheros/ejercicios/Ejercicio1DatosEntrada3.txt");
 		for(String s : ls) {
 			ejercicio1AG p = new ejercicio1AG(s);
 			AlgoritmoAG<List<Integer>, SolucionEjercicio1> ap = AlgoritmoAG.of(p);

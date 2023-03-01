@@ -68,12 +68,13 @@ public class ejercicio1AG implements ValuesInRangeData<Integer, SolucionEjercici
 		}
 
 		for (int i = 0; i < DatosEjercicio1.getTiposCafe(); i++) {
-			// Double dif = DatosEjercicio1.getCafes().get(i).peso()- pesoTotalCafe(value,
-			// i);
-			Double dif = Math.abs(DatosEjercicio1.getCafes().get(i).peso() - pesoTotalCafe(value, i));
-			// creo que el if no hace falta
+			 Double dif = DatosEjercicio1.getCafes().get(i).peso()- pesoTotalCafe(value, i);
+			//Double dif = Math.abs(DatosEjercicio1.getCafes().get(i).peso() - pesoTotalCafe(value, i));
+			 if(dif<= 0) {
+				 error += Math.abs(dif); 
+			 }
 
-			error += dif;
+			
 
 		}
 
@@ -84,8 +85,11 @@ public class ejercicio1AG implements ValuesInRangeData<Integer, SolucionEjercici
 	public Integer max(Integer i) {
 		Map<String, Double> mapAux = DatosEjercicio1.getVariedades().get(i).composicion();
 		Set<String> setAux = mapAux.keySet();
+		Double limite = setAux.stream().
+				mapToDouble(k -> DatosEjercicio1.getCafeNom(k).peso()* mapAux.get(k)).
+				min().getAsDouble();
 
-		return setAux.stream().mapToInt(k -> DatosEjercicio1.getCafeNom(k).peso()).min().orElse(0);
+		return (int) Math.floor(limite) ;
 	}
 
 	@Override
