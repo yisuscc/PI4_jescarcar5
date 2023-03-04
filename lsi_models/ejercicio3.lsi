@@ -17,11 +17,14 @@ max sum(getCalidadTrabajo(j) y[j] , j in 0 ..  m)
 
 constraints section
 
-sum(x[i,j], i in 0 .. m)>0  =>  y[j] = 1 , j in 0 .. m  
-
+//y[j] = 1 |sum(x[i,j], i in 0 .. n)>0  , j in 0 .. m  
+//x[i,j] >= 0 | getTrabajadorEsp(i,j) , i in 0 .. n ,j in 0 .. m
 bounds section 
 
-sum(x[i,j], j in 0 .. m ) <= getDiasDisp(i), i in 0 .. n
+//sum(x[i,j], j in 0 .. m ) <= getDiasDisp(i), i in 0 .. n
+// relacionar especialidad y trabajador 
+
+
 
 bin
 y[j], j in 0 .. m 

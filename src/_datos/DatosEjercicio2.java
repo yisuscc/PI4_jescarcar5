@@ -46,7 +46,7 @@ public static record Cursos(Set<Integer> tematica, Double matricula, Integer cen
 	}
 	private static void test() {
 		iniDatos("ficheros/ejercicios/Ejercicio2DatosEntrada1.txt");
-		System.out.println("el maximo de centros es" + maxCentros);
+		System.out.println("el maximo de centros es: " + maxCentros);
 		System.out.println("Los cursos son "+ todoCursos);
 	}
 	public static void main(String[] args) {

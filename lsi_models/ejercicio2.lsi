@@ -15,23 +15,16 @@ Integer cero = 0
 
 goal section 
 
-min sum(getPrecio(i), i in 0 .. n | x[i]= 1)
+min sum(getPrecio(i) x[i], i in 0 .. n)
 
 constraints section
 sum(y[k], k in  0 .. nc) <= maxCentros
- 
+sum(y[k], k in  0 .. nc)> 0
 y[k] - x[i] >= 0 | getCursoCentro(i,k) , i in 0 .. n , k in 0 .. nc
 
 //ha de cubrir todas las tematicas 
- sum(getCursoTematica(i,j) , i in  0 .. n | x[i] = 1 )  > 0 ,  j in 0 .. m
- 
+ sum(getCursoTematica(i,j), i in  0 .. n | x[i]) > 0,  j in 0 .. m
 
-
- 
-
-
-
- 
 bin 
 x[i], i in 0 .. n
 y[k], k in 0 .. nc

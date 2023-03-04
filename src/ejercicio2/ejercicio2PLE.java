@@ -34,9 +34,9 @@ public static Integer getMaxCentros() {
 
 	return DatosEjercicio2.getMaxCentros();
 }
-public static  Integer getCursoTematica(Integer i, Integer j) {
+public static  Boolean getCursoTematica(Integer i, Integer j) {
 	
-	return DatosEjercicio2.getCursos().get(i).tematica().contains(j)?1:0;
+	return DatosEjercicio2.getCursos().get(i).tematica().contains(j);
 }
 public static Double getPrecio (Integer i) {
 
