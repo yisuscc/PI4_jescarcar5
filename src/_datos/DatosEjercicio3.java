@@ -46,7 +46,7 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 		return trabajos;
 	}
 	
-
+ 
 	public static void iniData(String fichero) {
 		List<String> lsF  = Files2.linesFromFile(fichero);
 		 Integer indexTrabajos = lsF.indexOf("// TRABAJOS");
@@ -55,6 +55,7 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 		 trabajos = trab;
 		 investigadores = inv;
 	}
+	
 	private static void test() {
 		 String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada2.txt";
 		iniData(fichero);
