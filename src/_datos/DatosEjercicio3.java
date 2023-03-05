@@ -56,15 +56,15 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 		 investigadores = inv;
 	}
 	
-	private static void test() {
-		 String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada2.txt";
-		iniData(fichero);
+	public static void test( String fichero) {
+		
+			iniData(fichero);
 		 System.out.println("Estos son los trabajos"+ getTrabajos());
 		 System.out.println("Estos son los inv" + getInvestigadores());
 		 
 	}
 	public static void main(String[] args) {
-		 test();
+		 test("ficheros/ejercicios/Ejercicio3DatosEntrada1.txt");
 
 		}
 	
