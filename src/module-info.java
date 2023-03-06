@@ -10,5 +10,5 @@ module pi42223 {
 	exports ejercicio3;
 	
 	exports ejemplo2;
-	//exports ejemplo3;
+	exports ejemplo3;
 }

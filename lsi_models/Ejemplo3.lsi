@@ -1,0 +1,22 @@
+head section
+Integer getNumAlumnos()
+Integer getNumGrupos()
+Integer getTamGrupo()
+Integer getAfinidad(Integer i, Integer j)
+Integer n = getNumAlumnos()
+Integer m = getNumGrupos()
+Integer  t = getTamGrupo()
+goal section 
+ max sum(getAfinidad(i,j) x[i,j], i in 0 .. n, j in 0 .. m)
+
+constraints section
+// solo se asigna un grupo a cada alumno
+sum(x[i,j], j in 0 .. m) = 1, i in 0 .. n
+
+//que los grupos no tengas mas de 
+sum(x[i,j],i in 0 .. n) = t  ,j in 0 .. m
+// que las afinidades no sea cero
+//x[i,j] = 0 |getAfinidad(i,j) = 0, i in 0 .. n, j in 0 .. m
+sum(x[i,j], i in 0 .. n |getAfinidad(i,j)= 0) = 0 , j in 0 .. m
+bin
+x[i,j], i in 0 .. n ,j in  0 .. m

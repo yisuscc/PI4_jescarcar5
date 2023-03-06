@@ -23,7 +23,7 @@ public class TestEjercicio3AG {
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
 		for(int ej= 1; ej<= 3; ej++) {
-		String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada"+ej+".txt";
+		String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada3.txt";
 		//DatosEjercicio3.test(fichero);
 		Ejercicio3AG p = new Ejercicio3AG(fichero);
 		AlgoritmoAG<List<Integer>,SolucionEjercicio3> ap = AlgoritmoAG.of(p);

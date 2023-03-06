@@ -64,7 +64,7 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 		 
 	}
 	public static void main(String[] args) {
-		 test("ficheros/ejercicios/Ejercicio3DatosEntrada1.txt");
+	//	 test("ficheros/ejercicios/Ejercicio3DatosEntrada1.txt");
 
 		}
 	
