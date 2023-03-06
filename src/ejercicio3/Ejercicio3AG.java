@@ -6,7 +6,7 @@ import java.util.List;
 import _datos.DatosEjercicio3;
 import _datos.DatosEjercicio3.Investigador;
 import _datos.DatosEjercicio3.Trabajo;
-import _datos.DatosEjercicio4;
+
 import _soluciones.SolucionEjercicio3;
 import us.lsi.ag.ValuesInRangeData;
 import us.lsi.ag.ValuesInSetData;

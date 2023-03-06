@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import _datos.DatosEjercicio2;
 import _datos.DatosEjercicio2.Cursos;
-import _datos.DatosEjercicio4;
+
 import _soluciones.SolucionEjercicio2;
 import us.lsi.ag.BinaryData;
 import us.lsi.common.Set2;
