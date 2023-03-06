@@ -11,9 +11,28 @@ import us.lsi.ag.agchromosomes.AlgoritmoAG;
 import us.lsi.ag.agstopping.StoppingConditionFactory;
 
 public class TestEjercicio3AG {
-
-	public static void main(String[] args) {
+	// lo voy a hacer en test inndividuales, porque si no, me da problemas en la visualización
+	public static void test1() {
 		Locale.setDefault(new Locale("en", "US"));
+		AlgoritmoAG.ELITISM_RATE  = 0.30;
+		AlgoritmoAG.CROSSOVER_RATE = 0.80;
+		AlgoritmoAG.MUTATION_RATE = 0.7;
+		AlgoritmoAG.POPULATION_SIZE = 500;
+		StoppingConditionFactory.NUM_GENERATIONS = 1000;
+		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
+		String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada1.txt";
+		//DatosEjercicio3.test(fichero);
+		Ejercicio3AG p = new Ejercicio3AG(fichero);
+		AlgoritmoAG<List<Integer>,SolucionEjercicio3> ap = AlgoritmoAG.of(p);
+		ap.ejecuta();
+		System.out.println("================================");
+		System.out.println(ap.bestSolution());
+		System.out.println("Fitiness: ");
+		System.out.println(ap.getBestChromosome().fitness());
+		System.out.println("================================");
+	}
+	public static void test2() {
+Locale.setDefault(new Locale("en", "US"));
 		
 		AlgoritmoAG.ELITISM_RATE  = 0.30;
 		AlgoritmoAG.CROSSOVER_RATE = 0.80;
@@ -22,9 +41,9 @@ public class TestEjercicio3AG {
 		
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
-		for(int ej= 1; ej<= 3; ej++) {
-		String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada3.txt";
-		//DatosEjercicio3.test(fichero);
+		
+		String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada2.txt";
+		
 		Ejercicio3AG p = new Ejercicio3AG(fichero);
 		AlgoritmoAG<List<Integer>,SolucionEjercicio3> ap = AlgoritmoAG.of(p);
 		ap.ejecuta();
@@ -32,9 +51,16 @@ public class TestEjercicio3AG {
 
 		System.out.println("================================");
 		System.out.println(ap.bestSolution());
+		System.out.println("Ftiness: ");
 		System.out.println(ap.getBestChromosome().fitness());
 		System.out.println("================================");
-		}
+	}
+
+	public static void main(String[] args) {
+test1();
+System.out.println("siguiente test");
+test2();
+		
 
 	}
 

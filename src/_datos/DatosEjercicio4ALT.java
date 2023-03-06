@@ -1,11 +1,17 @@
 package _datos;
 
+import java.util.List;
+
 import org.jgrapht.Graph;
 
+import us.lsi.ag.SeqNormalData;
+import us.lsi.ag.agchromosomes.ChromosomeFactory.ChromosomeType;
+import us.lsi.grafos.datos.Ciudad;
 import us.lsi.graphs.Graphs2;
 import us.lsi.graphs.GraphsReader;
+import us.lsi.graphs.views.IntegerVertexGraphView;
 
-public class DatosEjercicio4 {
+public class DatosEjercicio4ALT implements SeqNormalData<List<_datos.DatosEjercicio4ALT.Cliente2>>{
 	
 	//asumo que es un grafo no dirigido
 	// pero ponderado
@@ -25,26 +31,16 @@ public class DatosEjercicio4 {
 			return new Arista(Integer.valueOf(aux[0].trim()),Integer.valueOf(aux[1].trim()),Double.valueOf(aux[1].trim()));
 		}
 	}
-private static Graph<Cliente2, Arista> grafo;
+private static IntegerVertexGraphView<Cliente2, Arista> grafo;
+private static Integer n;
 
-public static Graph<Cliente2, Arista> getGrafo(){
-	return grafo;
-}
-public static Cliente2 devVertice(Integer j) {
-	return grafo.vertexSet().stream().filter(v-> v.idCliente.equals(j)).findFirst().get();
-}
 
-public static Double pesoArista(Integer i, Integer j) {
-	Double r = 1000.0;
-	if (grafo.containsEdge(devVertice(i),devVertice(j))) {
-		r= grafo.getEdgeWeight(grafo.getEdge(devVertice(i), devVertice(j)));
-	}
-	return r; 
-}
+
 
 	public static void iniDatos(String fichero) {
 		Graph<Cliente2, Arista> gra = GraphsReader.newGraph(fichero,Cliente2::create ,Arista::create, Graphs2::simpleWeightedGraph, Arista::kms);
-		grafo= gra;
+		grafo= IntegerVertexGraphView.of(gra);
+		n = gra.vertexSet().size();
 		
 	}
 	private static void test() {
@@ -54,6 +50,26 @@ public static Double pesoArista(Integer i, Integer j) {
 	public static void main(String[] args) {
 		test();
 
+	}
+	@Override
+	public ChromosomeType type() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Double fitnessFunction(List<Integer> value) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<Cliente2> solucion(List<Integer> value) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Integer itemsNumber() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

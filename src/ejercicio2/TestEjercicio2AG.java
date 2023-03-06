@@ -20,7 +20,7 @@ public static void main(String[] args) {
 	StoppingConditionFactory.NUM_GENERATIONS = 1000;
 	StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
 	for(int ej= 1; ej<= 3; ej++) {
-	Ejercicio2AGBIN p = new Ejercicio2AGBIN("ficheros//ejercicios/Ejercicio2DatosEntrada"+ej+".txt");
+	Ejercicio2AGBIN p = new Ejercicio2AGBIN("ficheros/ejercicios/Ejercicio2DatosEntrada"+ej+".txt");
 	AlgoritmoAG<List<Integer>,SolucionEjercicio2> ap = AlgoritmoAG.of(p);
 	ap.ejecuta();
 	
