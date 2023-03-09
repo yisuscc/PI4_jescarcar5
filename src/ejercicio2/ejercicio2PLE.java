@@ -34,17 +34,17 @@ public static Integer getMaxCentros() {
 
 	return DatosEjercicio2.getMaxCentros();
 }
-public static  Integer getCursoTematica(Integer i, Integer j) {
+public static  Boolean getCursoTematica(Integer i, Integer j) {
 	
-	return DatosEjercicio2.getCursos().get(i).tematica().contains(j)?1:0;
+	return DatosEjercicio2.getCursos().get(i).tematica().contains(j);
 }
 public static Double getPrecio (Integer i) {
 
 	return  DatosEjercicio2.getCursos().get(i).matricula();
 }
-public static Integer getCursoCentro(Integer i, Integer k) {
+public static Boolean getCursoCentro(Integer i, Integer k) {
 	
-	return DatosEjercicio2.getCursos().get(i).centro().equals(k)?1:0;
+	return DatosEjercicio2.getCursos().get(i).centro().equals(k);
 }
 public static void entrada1() throws IOException {
 	DatosEjercicio2.iniDatos("ficheros/ejercicios/Ejercicio2DatosEntrada1.txt");
