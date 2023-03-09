@@ -3,8 +3,7 @@ package ejercicio4;
 import java.util.List;
 import java.util.Locale;
 
-import _datos.DatosEjercicio4ALT;
-import _datos.DatosEjercicio4ALT.Cliente2;
+import ejercicio4.DatosEjercicio4ALT.Cliente2;
 import us.lsi.ag.agchromosomes.AlgoritmoAG;
 import us.lsi.ag.agstopping.SolutionsNumber;
 import us.lsi.ag.agstopping.StoppingConditionFactory;

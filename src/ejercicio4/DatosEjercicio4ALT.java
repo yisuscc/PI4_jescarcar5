@@ -1,4 +1,4 @@
-package _datos;
+package ejercicio4;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import us.lsi.graphs.Graphs2;
 import us.lsi.graphs.GraphsReader;
 import us.lsi.graphs.views.IntegerVertexGraphView;
 
-public class DatosEjercicio4ALT implements SeqNormalData<List<_datos.DatosEjercicio4ALT.Cliente2>>{
+public class DatosEjercicio4ALT implements SeqNormalData<List<ejercicio4.DatosEjercicio4ALT.Cliente2>>{
 	public DatosEjercicio4ALT(String fichero) {
 		iniDatos(fichero);
 	}
