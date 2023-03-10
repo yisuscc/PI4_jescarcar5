@@ -19,7 +19,7 @@ min sum(getPrecio(i)x[i] , i in 0 .. n )
 constraints section
 sum(y[k], k in 0 .. nc) <= maxCentros
 
-sum(x[i] , i in 0 .. n | getCursoTematica(i,j)  )>=1, j in 0 .. m
+sum(x[i] , i in 0 .. n | getCursoTematica(i,j)  )>=1, j in 1 .. m+1
 
  y[k]- x[i] =>0 |getCursoCentro(i,k) && x[i], i in  0 .. n, k in 0 .. nc
 bin 

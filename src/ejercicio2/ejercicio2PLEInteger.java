@@ -14,7 +14,7 @@ import us.lsi.gurobi.GurobiLp;
 import us.lsi.gurobi.GurobiSolution;
 import us.lsi.solve.AuxGrammar;
 
-public class ejercicio2PLE {
+public class ejercicio2PLEInteger {
 	private static List<Cursos> Cursos;
 	private static Integer maxCentros;
 	
@@ -34,28 +34,32 @@ public static Integer getMaxCentros() {
 
 	return DatosEjercicio2.getMaxCentros();
 }
-public static Boolean getCursoTematica(Integer i, Integer j) {
+public static Integer getCursoTematica(Integer i, Integer j) {
 	
-	return Cursos.get(i).tematica().contains(j);
+	return Cursos.get(i).tematica().contains(j)?1:0;
 }
 public static Double getPrecio (Integer i) {
 
 	return  Cursos.get(i).matricula();
 }
-public static Boolean getCursoCentro(Integer i, Integer k) {
+public static Integer getCursoCentro(Integer i, Integer k) {
 	
-	return Cursos.get(i).centro().equals(k);
+	return Cursos.get(i).centro().equals(k)?1:0;
 }
 public static void entrada1() throws IOException {
-	DatosEjercicio2.iniDatos("ficheros/ejercicios/Ejercicio2DatosEntrada1.txt");
-	Cursos = DatosEjercicio2.getCursos();
-	maxCentros = DatosEjercicio2.getMaxCentros();
-	System.out.println(DatosEjercicio2.getCursos());;
-	//ñSystem.out.println(getTematicas());
-	AuxGrammar.generate(ejercicio2PLE.class,"lsi_models/ejercicio2.lsi","gurobi_models/ejercicio2-1.lp");
-	GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio2-1.lp");
-	Locale.setDefault(new Locale("en", "US"));
-	System.out.println(solution.toString((s,d)->d>0.));
+	for(int ej = 1 ; ej<= 3; ej++) {
+		
+		DatosEjercicio2.iniDatos("ficheros/ejercicios/Ejercicio2DatosEntrada"+ej+".txt");
+		Cursos = DatosEjercicio2.getCursos();
+		maxCentros = DatosEjercicio2.getMaxCentros();
+		System.out.println(DatosEjercicio2.getCursos());;
+		//ñSystem.out.println(getTematicas());
+		AuxGrammar.generate(ejercicio2PLEInteger.class,"lsi_models/ejercicio2Integer.lsi","gurobi_models/ejercicio2Int-"+ej+".lp");
+		GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio2Int-"+ej+".lp");
+		Locale.setDefault(new Locale("en", "US"));
+		System.out.println(solution.toString((s,d)->d>0.));
+	}
+
 }
 	public static void main(String[] args) throws IOException {
 		entrada1();
