@@ -3,7 +3,7 @@ head section
 Integer getInvestigadores()
 Integer getEspecialidades()
 Integer getTrabajos() 
-Boolean getTrabajadorEsp(Integer i, Integer k)
+Integer getTrabajadorEsp(Integer i, Integer k)
 Integer getDiasDisp(Integer i)
 Integer getDiasNecesarios(Integer j, Integer k) 
 Integer getCalidadTrabajo(Integer j)
@@ -17,16 +17,16 @@ max sum(getCalidadTrabajo(j) y[j] , j in 0 ..  m)
 
 constraints section
 
-//y[j] = 1 |sum(x[i,j], i in 0 .. n)>0  , j in 0 .. m  
-//x[i,j] >= 0 | getTrabajadorEsp(i,j) , i in 0 .. n ,j in 0 .. m
-bounds section 
+y[j] = 1 |sum(x[i,j], i in 0 .. n)>0  , j in 0 .. m  
+sum(x[i,j], j in 0 .. m ) <= getDiasDisp(i), i in 0 .. n
 
-//sum(x[i,j], j in 0 .. m ) <= getDiasDisp(i), i in 0 .. n
+
 // relacionar especialidad y trabajador 
+// se relaciona con una cota 
 
 
 
 bin
 y[j], j in 0 .. m 
 int 
-x[i,j], i in 0 .. n ,j in 0 .. m  |
+x[i,j], i in 0 .. n ,j in 0 .. m 

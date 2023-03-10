@@ -20,38 +20,38 @@ public class ejercicio2PLE {
 	
 public static Integer getCursos() {
 	
-	return DatosEjercicio2.getCursos().size();
+	return Cursos.size();
 }
 public static Integer  getTematicas() {
 	
-	return DatosEjercicio2.getCursos().stream().map(c-> c.tematica()).flatMap(s-> s.stream()).collect(Collectors.toSet()).size();
+	return Cursos.stream().map(c-> c.tematica()).flatMap(s-> s.stream()).collect(Collectors.toSet()).size();
 }
 public static Integer getCentros() {
 	
-	return DatosEjercicio2.getCursos().stream().map(c-> c.centro()).collect(Collectors.toSet()).size();
+	return Cursos.stream().map(c-> c.centro()).collect(Collectors.toSet()).size();
 }
 public static Integer getMaxCentros() {
 
 	return DatosEjercicio2.getMaxCentros();
 }
-public static Integer getCursoTematica(Integer i, Integer j) {
+public static Boolean getCursoTematica(Integer i, Integer j) {
 	
-	return DatosEjercicio2.getCursos().get(i).tematica().contains(j)?1:0;
+	return Cursos.get(i).tematica().contains(j);
 }
 public static Double getPrecio (Integer i) {
 
-	return  DatosEjercicio2.getCursos().get(i).matricula();
+	return  Cursos.get(i).matricula();
 }
 public static Boolean getCursoCentro(Integer i, Integer k) {
 	
-	return DatosEjercicio2.getCursos().get(i).centro().equals(k);
+	return Cursos.get(i).centro().equals(k);
 }
 public static void entrada1() throws IOException {
 	DatosEjercicio2.iniDatos("ficheros/ejercicios/Ejercicio2DatosEntrada1.txt");
 	Cursos = DatosEjercicio2.getCursos();
 	maxCentros = DatosEjercicio2.getMaxCentros();
-	//System.out.println(getCursoTematica(4, 0));;
-	System.out.println(getTematicas());
+	System.out.println(DatosEjercicio2.getCursos());;
+	//ñSystem.out.println(getTematicas());
 	AuxGrammar.generate(ejercicio2PLE.class,"lsi_models/ejercicio2.lsi","gurobi_models/ejercicio2-1.lp");
 	GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio2-1.lp");
 	Locale.setDefault(new Locale("en", "US"));

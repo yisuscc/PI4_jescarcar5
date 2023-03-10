@@ -28,8 +28,8 @@ public class ejercicio3PLE {
 	public static Integer getTrabajos() {
 		return trabajos.size();
 	}
-	public static	Boolean getTrabajadorEsp(Integer i, Integer k) {
-		return investigadores.get(i).especialidad().equals(k);
+	public static Integer getTrabajadorEsp(Integer i, Integer k) {
+		return investigadores.get(i).especialidad().equals(k)?1:0;
 	}
 	public static Integer getDiasDisp(Integer i) {
 	 return investigadores.get(i).capacidad();
