@@ -3,6 +3,6 @@
 Minimize
  
 Subject To
- c0: >= 1
+ b0: >= 1
 Bounds
 End
