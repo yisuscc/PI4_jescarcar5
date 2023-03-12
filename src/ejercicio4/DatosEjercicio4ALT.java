@@ -84,7 +84,10 @@ private static Integer n;
 			if(!grafo.containsEdge(value.get(i), value.get(j))) {
 				error += 1000;
 			}else {
-			penalizacion = 2*penalizacion+ grafo.getEdgeWeight(value.get(i), value.get(j));
+				if (j!=0) {
+				penalizacion = 2*penalizacion+ grafo.getEdgeWeight(value.get(i), value.get(j));
+				}
+			
 			kms +=grafo.getEdgeWeight(value.get(i), value.get(j));
 			/* se puede calcular de esta forma tambien
 			 * beneficio= beneficio-0.01*kms
