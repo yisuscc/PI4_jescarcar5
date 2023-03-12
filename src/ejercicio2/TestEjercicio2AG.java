@@ -12,7 +12,7 @@ public class TestEjercicio2AG {
 public static void main(String[] args) {
 	Locale.setDefault(new Locale("en", "US"));
 	
-	AlgoritmoAG.ELITISM_RATE  = 0.30;
+	AlgoritmoAG.ELITISM_RATE  = 0.10;
 	AlgoritmoAG.CROSSOVER_RATE = 0.80;
 	AlgoritmoAG.MUTATION_RATE = 0.7;
 	AlgoritmoAG.POPULATION_SIZE = 500;
@@ -27,6 +27,7 @@ public static void main(String[] args) {
 
 	System.out.println("================================");
 	System.out.println(ap.bestSolution());
+	System.out.println(ap.getBestChromosome().fitness());
 	System.out.println("================================");
 	}
 	
