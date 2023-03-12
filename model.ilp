@@ -1,8 +1,10 @@
 \ Model _copy
 \ LP format - for model browsing. Use MPS format to capture full model detail.
-Minimize
+Maximize
  
 Subject To
- b0: >= 1
+ a4: x_4_0 + x_4_1 + x_4_2 <= 5
+ c0: x_4_2 = 7
 Bounds
+ x_4_2 free
 End

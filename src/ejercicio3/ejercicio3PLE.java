@@ -45,14 +45,17 @@ public class ejercicio3PLE {
 		return getDiasNecesarios(j, esp);
 	}
 public static void entrada1() throws IOException {
-	String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada1.txt";
-	DatosEjercicio3.iniData(fichero);
-	investigadores = DatosEjercicio3.getInvestigadores();
-	trabajos = DatosEjercicio3.getTrabajos();
-	AuxGrammar.generate(ejercicio3PLE.class,"lsi_models/ejercicio3.lsi","gurobi_models/ejercicio3-1.lp");
-	GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio3-1.lp");
-	Locale.setDefault(new Locale("en", "US"));
-	System.out.println(solution.toString((s,d)->d>0.));
+	for(int ej = 1; ej<= 1; ej++) {
+		String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada"+ej+".txt";
+		DatosEjercicio3.iniData(fichero);
+		investigadores = DatosEjercicio3.getInvestigadores();
+		trabajos = DatosEjercicio3.getTrabajos();
+		AuxGrammar.generate(ejercicio3PLE.class,"lsi_models/ejercicio3.lsi","gurobi_models/ejercicio3-"+ej+".lp");
+		GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio3-"+ej+".lp");
+		Locale.setDefault(new Locale("en", "US"));
+		System.out.println(solution.toString((s,d)->d>0.));
+	}
+	
 }
 	public static void main(String[] args) throws IOException {
 	entrada1();
