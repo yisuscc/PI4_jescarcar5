@@ -54,8 +54,8 @@ public static void entrada1() throws IOException {
 		maxCentros = DatosEjercicio2.getMaxCentros();
 		System.out.println(DatosEjercicio2.getCursos());;
 		//ñSystem.out.println(getTematicas());
-		AuxGrammar.generate(ejercicio2PLEBoolean.class,"lsi_models/ejercicio2Integer.lsi","gurobi_models/ejercicio2-"+ej+".lp");
-		GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio2-"+ej+".lp");
+		AuxGrammar.generate(ejercicio2PLEBoolean.class,"lsi_models/ejercicio2Boolean.lsi","gurobi_models/ejercicio2Bool-"+ej+".lp");
+		GurobiSolution solution = GurobiLp.gurobi("gurobi_models/ejercicio2Bool-"+ej+".lp");
 		Locale.setDefault(new Locale("en", "US"));
 		System.out.println(solution.toString((s,d)->d>0.));
 	}

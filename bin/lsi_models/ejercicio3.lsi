@@ -1,32 +1,29 @@
-head section 
-
+head section
 Integer getInvestigadores()
 Integer getEspecialidades()
-Integer getTrabajos() 
-Integer getTrabajadorEsp(Integer i, Integer k)
+Integer getTrabajos()
+Integer getTrabajadorEsp(Integer i, Integer k) //pseudoboolean 
 Integer getDiasDisp(Integer i)
-Integer getDiasNecesarios(Integer j, Integer k) 
+Integer getDiasNecesarios(Integer j, Integer k)
 Integer getCalidadTrabajo(Integer j)
+Integer getDiasInvTrabajo(Integer i, Integer j)
 Integer n = getInvestigadores()
 Integer e = getEspecialidades()
-Integer m =  getTrabajos() 
+Integer m = getTrabajos()
+
 
 goal section
-
-max sum(getCalidadTrabajo(j) y[j] , j in 0 ..  m) 
-
+max sum(getCalidadTrabajo(j) y[j], j in 0 .. m)
 constraints section
-
-y[j] = 1 |sum(x[i,j], i in 0 .. n)>0  , j in 0 .. m  
-sum(x[i,j], j in 0 .. m ) <= getDiasDisp(i), i in 0 .. n
-
-
-// relacionar especialidad y trabajador 
-// se relaciona con una cota 
-
-
-
+//no puede superar su cantidad de días disponibles
+sum(x[i,j], j in 0 .. m) <= getDiasDisp(i), i in 0 .. n
+// relacionar x e y 
+sum(x[i,j], i in 0 .. n) >0 => y[j]=1, j in 0 .. m //no se si usar -> o =>
+ //y[j] = 1 | sum(x[i,j], i in 0 .. n) > 0, j in 0 .. m
+ //qu el trabajo sea 0 o los dias que necesita para completarse
+//x[i,j]> 0  -> x[i,j] = getDiasInvTrabajo(i,j), i in 0 .. n , j in 0 .. m
+x[i,j]= getDiasInvTrabajo(i,j) | x[i,j] >0  , i in 0 .. n , j in 0 .. m
 bin
-y[j], j in 0 .. m 
-int 
-x[i,j], i in 0 .. n ,j in 0 .. m 
+y[j], j in 0 .. m
+int
+x[i,j], i in 0 ..  n, j in 0 .. m

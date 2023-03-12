@@ -40,6 +40,10 @@ public class ejercicio3PLE {
 	public static Integer getCalidadTrabajo(Integer j) {
 		return trabajos.get(j).calidad();
 	}
+	public static Integer getDiasInvTrabajo(Integer i, Integer j) {
+		Integer esp = investigadores.get(i).especialidad();
+		return getDiasNecesarios(j, esp);
+	}
 public static void entrada1() throws IOException {
 	String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada1.txt";
 	DatosEjercicio3.iniData(fichero);
