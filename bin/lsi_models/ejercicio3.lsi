@@ -18,10 +18,11 @@ constraints section
 //no puede superar su cantidad de días disponibles
 sum(x[i,j], j in 0 .. m) <= getDiasDisp(i), i in 0 .. n
 // relacionar x e y 
-sum(x[i,j], i in 0 .. n) >0 => y[j]=1, j in 0 .. m //no se si usar -> o =>
+//sum(x[i,j], i in 0 .. n) >0 => y[j]=1, j in 0 .. m //no se si usar -> o =>
+y[j] = 1 -> sum(x[i,j], i in 0 .. n) >0, j in 0 .. m
  //y[j] = 1 | sum(x[i,j], i in 0 .. n) > 0, j in 0 .. m
  //qu el trabajo sea 0 o los dias que necesita para completarse
-//x[i,j]> 0  -> x[i,j] = getDiasInvTrabajo(i,j), i in 0 .. n , j in 0 .. m
+
 x[i,j]= getDiasInvTrabajo(i,j) | x[i,j] >0  , i in 0 .. n , j in 0 .. m
 bin
 y[j], j in 0 .. m
