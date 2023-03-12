@@ -27,7 +27,7 @@ public class TestEjercicio3AG {
 		ap.ejecuta();
 		System.out.println("================================");
 		System.out.println(ap.bestSolution());
-		System.out.println("Fitiness: ");
+		System.out.println("Fitness: ");
 		System.out.println(ap.getBestChromosome().fitness());
 		System.out.println("================================");
 	}
@@ -51,14 +51,14 @@ Locale.setDefault(new Locale("en", "US"));
 
 		System.out.println("================================");
 		System.out.println(ap.bestSolution());
-		System.out.println("Ftiness: ");
+		System.out.println("Fitness: ");
 		System.out.println(ap.getBestChromosome().fitness());
 		System.out.println("================================");
 	}
 
 	public static void main(String[] args) {
-test1();
-System.out.println("siguiente test");
+//test1();
+
 test2();
 		
 

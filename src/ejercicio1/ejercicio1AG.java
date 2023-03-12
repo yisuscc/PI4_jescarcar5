@@ -90,7 +90,7 @@ public class ejercicio1AG implements ValuesInRangeData<Integer, SolucionEjercici
 				mapToDouble(k -> DatosEjercicio1.getCafeNom(k).peso()/ mapAux.get(k)).
 				min().getAsDouble();
 
-		return (int) Math.floor(limite) ;
+		return (int) Math.ceil(limite)+1 ;
 	}
 
 	@Override
