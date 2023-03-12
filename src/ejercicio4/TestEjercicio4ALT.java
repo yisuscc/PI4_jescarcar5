@@ -13,8 +13,8 @@ public class TestEjercicio4ALT {
 
 	public static void main(String[] args) {
 		Locale.setDefault(new Locale("en", "US"));
-		AlgoritmoAG.ELITISM_RATE  = 0.30;
-		AlgoritmoAG.CROSSOVER_RATE = 0.80;
+		AlgoritmoAG.ELITISM_RATE  = 0.10;
+		AlgoritmoAG.CROSSOVER_RATE = 0.70;
 		AlgoritmoAG.MUTATION_RATE = 0.7;
 		AlgoritmoAG.POPULATION_SIZE = 500;
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
