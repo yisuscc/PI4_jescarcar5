@@ -23,8 +23,7 @@ public class Ejercicio3AG implements ValuesInSetData<SolucionEjercicio3> {
 	 * 	Trabajo trab =DatosEjercicio3.getTrabajos().get( i%nTrabajos);
 			Investigador inv = DatosEjercicio3.getInvestigadores().get(i/nTrabajos);
 	 */
-	//private static Integer nInv = DatosEjercicio3.getInvestigadores().size();
-//	private static Integer nTrabajos =  DatosEjercicio3.getTrabajos().size();
+
 	@Override
 	public Integer size() {
 		Integer nTrabajos =  DatosEjercicio3.getTrabajos().size();

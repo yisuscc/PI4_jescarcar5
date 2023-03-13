@@ -67,7 +67,7 @@ public class TestEjercicio3AG {
 		AlgoritmoAG.POPULATION_SIZE = 500;
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
-		test1();
+	test1();
 		test2();
 		test3();
 

@@ -1,0 +1,26 @@
+head section
+
+Integer getCursos()
+Integer  getTematicas()
+Integer getCentros()
+Integer getMaxCentros()
+Boolean getCursoTematica(Integer i, Integer j) 
+Double getPrecio (Integer i)
+Boolean getCursoCentro(Integer i, Integer k)
+Integer n =  getCursos()
+Integer m = getTematicas()
+Integer nc = getCentros()
+Integer maxCentros = getMaxCentros()
+
+goal section
+
+min sum(getPrecio(i)x[i] , i in 0 .. n )
+
+constraints section
+sum(y[k], k in 0 .. nc) <= maxCentros
+ getCursoCentro(i,k) => y[k]- x[i] >=0 , i in  0 .. n, k in 0 .. nc
+sum(x[i] , i in 0 .. n | getCursoTematica(i,k)), j in  1 .. m+1
+
+bin 
+x[i], i in 0 .. n
+y[k], k in 0 .. nc
