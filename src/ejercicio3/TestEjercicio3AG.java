@@ -58,8 +58,7 @@ public class TestEjercicio3AG {
 
 	public static void main(String[] args) {
 
-		// Importante ejecutar cada uno de forma Individual
-		// si no da problemas en la presentación
+	
 		Locale.setDefault(new Locale("en", "US"));
 		AlgoritmoAG.ELITISM_RATE = 0.30;
 		AlgoritmoAG.CROSSOVER_RATE = 0.80;

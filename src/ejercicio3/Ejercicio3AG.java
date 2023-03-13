@@ -11,6 +11,7 @@ import _soluciones.SolucionEjercicio3;
 import us.lsi.ag.ValuesInRangeData;
 import us.lsi.ag.ValuesInSetData;
 import us.lsi.ag.agchromosomes.ChromosomeFactory.ChromosomeType;
+import us.lsi.hypergraphs2.Datos;
 
 public class Ejercicio3AG implements ValuesInSetData<SolucionEjercicio3> {
 
@@ -36,17 +37,22 @@ public class Ejercicio3AG implements ValuesInSetData<SolucionEjercicio3> {
 		Integer nInv = DatosEjercicio3.getInvestigadores().size();
 		Double calidadTotal= 0.0;
 		Double error= 0.0;
-		for(int k = 0; k<nTrabajos;k++) {
+		for(int t = 0; t<nTrabajos;t++) {//perspectiva de los trabajos
 			Double dT = 0.0;
-			for(int l = k;l<value.size();l = l+nTrabajos) {
-				dT += value.get(l);
+			Double trabajoNecesita = Double.valueOf(DatosEjercicio3.getDiaTrabajo(t));
+			for(int in = 0; in<nInv; in++) {
+				Integer posicion = in*nTrabajos+ t;
+				dT += value.get(posicion);
 			}
-			if(dT>0.0) {
-			calidadTotal += DatosEjercicio3.getTrabajos().get(k).calidad();
-				
+			
+			if(dT>=trabajoNecesita) {
+				calidadTotal += DatosEjercicio3.getTrabajos().get(t).calidad();
+					
+				}else if(dT>0) {
+					error+= Math.abs(dT-trabajoNecesita);
+				}
 			}
-		}
-		for(int in = 0; in<nInv; in++) {
+		for(int in = 0; in<nInv; in++) {//perspectiva de los investigadores
 			Integer diasTrabajados =0;
 			for(int t = 0; t<nTrabajos;t++) {
 				Integer posicion = in*nTrabajos+ t;

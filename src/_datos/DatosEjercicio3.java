@@ -45,6 +45,9 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 	public static List<Trabajo> getTrabajos() {
 		return trabajos;
 	}
+	public static Integer getDiaTrabajo(Integer trab) {
+		return trabajos.get(trab).espDias().values().stream().mapToInt(i->i).sum();
+	}
 	
  
 	public static void iniData(String fichero) {
@@ -55,6 +58,7 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 		 trabajos = trab;
 		 investigadores = inv;
 	}
+	
 	
 	public static void test( String fichero) {
 		
