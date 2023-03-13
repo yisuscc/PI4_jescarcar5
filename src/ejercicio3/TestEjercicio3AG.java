@@ -67,10 +67,19 @@ public class TestEjercicio3AG {
 		AlgoritmoAG.POPULATION_SIZE = 500;
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
-	test1();
-		test2();
-		test3();
+	for(int ej= 1;ej<=3; ej++ ) {
+		String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada"+ej+".txt";
 
+		Ejercicio3AG p = new Ejercicio3AG(fichero);
+		AlgoritmoAG<List<Integer>, SolucionEjercicio3> ap = AlgoritmoAG.of(p);
+		ap.ejecuta();
+
+		System.out.println("================================");
+		System.out.println(ap.bestSolution());
+		System.out.println("Fitness: ");
+		System.out.println(ap.getBestChromosome().fitness());
+		System.out.println("================================");
+	}
 	}
 
 }
