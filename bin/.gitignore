@@ -1,3 +1,17 @@
+/.classpath
+/.settings/
+/_datos/
+/_soluciones/
+/ejemplo1/
+/ejemplo2/
+/ejemplo3/
+/ejercicio1/
+/ejercicio2/
 /ejercicio3/
+/ejercicio4/
 /hs_err_pid7302.log
 /hs_err_pid7596.log
+/model.ilp
+/module-info.class
+/lsi_models/
+/gurobi_models/
