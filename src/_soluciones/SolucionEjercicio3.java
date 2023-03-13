@@ -37,7 +37,7 @@ public class SolucionEjercicio3 {
 		Integer fin = nTrabajos;
 		for(int i = 0; i<nInv;i++) {
 			List<Integer> solu = List2.copy(sol.subList(inicio, fin));
-			s += "INV"+i+": " +solu +"\r\n";
+			s += "INV"+(i+1)+": " +solu +"\r\n";
 			inicio+=nTrabajos;
 			fin += nTrabajos;
 		}

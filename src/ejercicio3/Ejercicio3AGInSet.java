@@ -13,9 +13,9 @@ import us.lsi.ag.ValuesInSetData;
 import us.lsi.ag.agchromosomes.ChromosomeFactory.ChromosomeType;
 import us.lsi.hypergraphs2.Datos;
 
-public class Ejercicio3AG implements ValuesInSetData<SolucionEjercicio3> {
+public class Ejercicio3AGInSet implements ValuesInSetData<SolucionEjercicio3> {
 
-	public Ejercicio3AG(String string) {
+	public Ejercicio3AGInSet(String string) {
 		DatosEjercicio3.iniData(string);
 	}
 	// para obtener el trabajo se usa el mod ntrabajos
@@ -45,11 +45,10 @@ public class Ejercicio3AG implements ValuesInSetData<SolucionEjercicio3> {
 				dT += value.get(posicion);
 			}
 			
-			if(dT>=trabajoNecesita) {
-				calidadTotal += DatosEjercicio3.getTrabajos().get(t).calidad();
-					
+			if(dT<trabajoNecesita && dT != 0.0) {
+				error+= Math.abs(dT-trabajoNecesita);	
 				}else if(dT>0) {
-					error+= Math.abs(dT-trabajoNecesita);
+				calidadTotal += DatosEjercicio3.getTrabajos().get(t).calidad();	
 				}
 			}
 		for(int in = 0; in<nInv; in++) {//perspectiva de los investigadores
