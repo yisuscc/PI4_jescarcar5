@@ -3,6 +3,8 @@ package _datos;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import us.lsi.basictypes.Test;
 import us.lsi.common.Files2;
@@ -47,6 +49,18 @@ public static record Trabajo(String nombre, Integer calidad, Map<Integer,Integer
 	}
 	public static Integer getDiaTrabajo(Integer trab) {
 		return trabajos.get(trab).espDias().values().stream().mapToInt(i->i).sum();
+	}
+	public static Integer getDiaTrabajoInv(Integer trab, Integer inv) {
+		Integer in = investigadores.get(inv).especialidad();
+		return trabajos.get(trab).espDias.get(in);
+		
+	}
+	public static Set<Investigador> getTrabajadoresConXesp(Integer x) {
+		return investigadores.stream().filter(i-> i.especialidad().equals(x)).collect(Collectors.toSet());
+	}
+	public static Boolean getTrabajadorEsp(Integer i, Integer k) {
+//		Copiado del Ejrecicio 3 ple	
+		return investigadores.get(i).especialidad().equals(k);
 	}
 	
  
