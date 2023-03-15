@@ -75,7 +75,7 @@ public class Ejercicio3AGInRange implements ValuesInRangeData<Integer, SolucionE
 					error += Math.abs(dTEsp-diasNecesariosEsp);
 				}
 			}
-			if(dTT>= diasNecesariosT) {
+			if(dTT == diasNecesariosT) {
 				calidadTotal += calidad;
 			}else if(dTT != 0) {
 				error += Math.abs(diasNecesariosT-dTT);

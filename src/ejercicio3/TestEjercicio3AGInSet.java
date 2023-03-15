@@ -60,13 +60,13 @@ public class TestEjercicio3AGInSet {
 
 	
 		Locale.setDefault(new Locale("en", "US"));
-		AlgoritmoAG.ELITISM_RATE = 0.05;
+		AlgoritmoAG.ELITISM_RATE = 0.30;
 		AlgoritmoAG.CROSSOVER_RATE = 0.80;
 		AlgoritmoAG.MUTATION_RATE = 0.7;
-		AlgoritmoAG.POPULATION_SIZE = 700;
-		StoppingConditionFactory.NUM_GENERATIONS = 2000;
+		AlgoritmoAG.POPULATION_SIZE = 500;
+		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
-	for(int ej= 3;ej<=3; ej++ ) {
+	for(int ej= 1;ej<=3; ej++ ) {
 		String fichero = "ficheros/ejercicios/Ejercicio3DatosEntrada"+ej+".txt";
 
 		Ejercicio3AGInSet p = new Ejercicio3AGInSet(fichero);
